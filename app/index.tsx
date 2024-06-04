@@ -7,6 +7,8 @@ import * as Sharing from "expo-sharing";
 import mobileHouseLogo from "../assets/images/mobileHouseLogo";
 import Seal from "../assets/images/seal";
 import converter from "number-to-words";
+import moment from "moment/moment";
+import instgramLogo from "../assets/images/instagram";
 
 interface BoxDetailsProps {
   title: string;
@@ -54,7 +56,7 @@ export default function App() {
             font-size:10px;
           }
           .boxBorder {
-              padding:3px;
+              padding:5px;
               border:1px solid black;
               border-color:#000000
           }
@@ -112,40 +114,49 @@ export default function App() {
         <div class="logoContainer">
           <h5 style="width:35%" class="boldText">GSTIN:32BSGPJ3340H1Z4</h5>
           <div style="display: flex;flex-direction:column;align-items: center;">
-            <img width="280" height="50"  alt="MobileHouseLogo" src="${mobileHouseLogo}"/></br>
+            <img width="280" height="70"  alt="MobileHouseLogo" src="${mobileHouseLogo}"/></br>
            
           </div>
           <div ></div>
         </div>
         <h5  class="boldText" style="display:flex;flex-direction:column;align-items:center;margin-top:-20px">   
             <span>3 Way Junction,Peringottukara</span></br>
-            <span>Mob:9072430483</span>  
+            <span style="margin-top:-5px">Mob:9072430483</span> 
+             <div style="display:flex;flex-direction:row;align-items:center;margin-top:-10px">
+             <img width="30" height="30"  alt="instagramLogo" src="${instgramLogo}"/>&nbsp;
+              <h6>mobile.house_</h6>
+          </div>
+          </br>
+            <div ></div> 
         </h5>
       
-        <div class=container>
+        <div class=container style="margin-top:-60px;padding:0px">
           <div style="width:25%">
             <h5 class="boldText">STATE:KERALA</h5>
-            <h5 class="boldText">INVOICE No:${billValues.billNo}</h5>
+            <h5 style="margin-top:-10px" class="boldText">INVOICE No:${
+              billValues.billNo
+            }</h5>
           </div>
           <div style="display: flex;flex-direction:column;align-items: center">
             <h5 class="boldText">GST TAX INVOICE (TYPE - B2C) - CASH SALE</h5>
           </div>
           <div>
-            <h5  class="boldText" style="display:flex;flex-direction:column;align-items:center">   
+            <h5  class="boldText" style="display:flex;flex-direction:column;align-items:flex-end">   
             <span>STATE CODE : 32</span></br>
-            <span>Invoice Date : May 29, 2024</span>  
+            <span style="margin-top:-10px">Invoice Date : ${moment().format(
+              "LL"
+            )}</span>  
         </h5>
       
-            <h5 class="boldText"></h5>
-            <h5 class="boldText"></h5>
+           
           </div>
             </div>
             </div>
             
-            <div class="boxBorder">
+            <div style="margin-top:3px" class="boxBorder">
             <h5 class="boldText">Customer :${billValues.name}</h5>
-            <h5>Address:${billValues.address}</h5>
-            <h5>Mobile Tel : ${billValues.mobile}</h5>
+            <h5 style="margin-top:10px">Address:${billValues.address}</h5>
+            <h5 style="margin-top:10px">Mobile Tel : ${billValues.mobile}</h5>
             </div>  
             <table class="tableStyle">
             <tr>
@@ -186,18 +197,20 @@ export default function App() {
 
               </div>
         <hr style="width:100%;text-align:left;margin-left:0;color:#000000">
-      <div class="container">
+      <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;height:15px">
         <h6>Total</h6>
         <h6>1</h6>
-        <h6>213</h6>
-        <h6>2554</h6>
-        <h6>545</h6> 
+        <h6>${(billValues.total / +(1 + 18 / 100)).toFixed(2)}</h6>
+        <h6>${(((+billValues.total / +(1 + 18 / 100)) * 18) / 100).toFixed(
+          2
+        )}</h6>
+        <h6>${billValues.total}.00</h6> 
       </div>
         <hr style="width:100%;text-align:left;margin-left:0;color:#000000">
       <div class="gstDetails">
-        <div style="width:50%">
+        <div style="width:70%">
           <h5>In Words:${converter.toWords(billValues.total)} only</h5>
-          <table class="">
+          <table style="width:"100%">
           <tr>
             <th></th>
             <th>GST 0%</th>
@@ -209,27 +222,39 @@ export default function App() {
           </tr>
           <tr>
             <td>Taxable</td>
-            <td>045</td>
-            <td>54545</td>
-            <td>54545</td>
-            <td>54545</td>
-            <td>54545</td>
+            <td>0.00</td>
+            <td>0.00</td>
+            <td>0.00</td>
+            <td> ${(((+billValues.total / +(1 + 18 / 100)) * 18) / 100).toFixed(
+              2
+            )}
+            <td>0.00</td>
+             </td>
           </tr>                
           <tr>
               <td>CGST Amount</td>
-              <td>045</td>
-              <td>54545</td>
-              <td>54545</td>
-              <td>54545</td>
-              <td>54545</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+                 <td>${(
+                   (((+billValues.total / +(1 + 18 / 100)) * 18) / 100).toFixed(
+                     2
+                   ) / 2
+                 ).toFixed(2)}</td>
+              
+              <td>0.00</td>
             </tr>
                       <tr>
               <td>SGST Amount</td>
-              <td>045</td>
-              <td>54545</td>
-              <td>54545</td>
-              <td>54545</td>
-              <td>54545</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>${(
+                (((+billValues.total / +(1 + 18 / 100)) * 18) / 100).toFixed(
+                  2
+                ) / 2
+              ).toFixed(2)}</td>
+              <td>0.00</td>
             </tr>
   
             </table>
@@ -242,7 +267,7 @@ export default function App() {
                               <h5>Certified that the particulars given above are true and
             correct:</h5>
                           <h5 class="boldText">For MOBILE HOUSE</h5>
-                          <h5 class="boldText">Authorised Signatory</h5>
+                          <h5 class="boldText" >Authorised Signatory</h5>
                         </div>
                           </div>
                     </div>
