@@ -49,6 +49,7 @@ export default function App() {
           .logoContainer  {
             display:flex;
             flex-direction:row;
+            padding:3px;
             
           }
           
@@ -78,7 +79,7 @@ export default function App() {
           padding: 8px;   
                 }
         .divHeight {
-          height:300px;
+          height:390px;
           width:100%;
           position:relative;
         }
@@ -100,7 +101,7 @@ export default function App() {
         }
         
         .boldText  {
-          font-size: 14px;
+          font-size: 13px;
           font-weight: bold;
           padding: 0px;
         }
@@ -110,9 +111,9 @@ export default function App() {
         </style>
       </head>
       <body>
-        <div class="boxBorder">
-        <div class="logoContainer">
-          <h5 style="width:35%" class="boldText">GSTIN:32BSGPJ3340H1Z4</h5>
+        <div class="boxBorder" >
+        <div class="logoContainer" >
+          <h5 style="width:32%" class="boldText">GSTIN:32BSGPJ3340H1Z4</h5>
           <div style="display: flex;flex-direction:column;align-items: center;">
             <img width="280" height="70"  alt="MobileHouseLogo" src="${mobileHouseLogo}"/></br>
            
@@ -120,8 +121,8 @@ export default function App() {
           <div ></div>
         </div>
         <h5  class="boldText" style="display:flex;flex-direction:column;align-items:center;margin-top:-20px">   
-            <span>3 Way Junction,Peringottukara</span></br>
-            <span style="margin-top:-5px">Mob:9072430483</span> 
+            <span style="margin-left:10px">3 Way Junction,Peringottukara</span></br>
+            <span style="margin-top:-10px">Mob:9072430483</span> 
              <div style="display:flex;flex-direction:row;align-items:center;margin-top:-10px">
              <img width="30" height="30"  alt="instagramLogo" src="${instgramLogo}"/>&nbsp;
               <h6>mobile.house_</h6>
@@ -130,20 +131,20 @@ export default function App() {
             <div ></div> 
         </h5>
       
-        <div class=container style="margin-top:-60px;padding:0px">
+        <div class=container style="margin-top:-70px;padding:0px">
           <div style="width:25%">
             <h5 class="boldText">STATE:KERALA</h5>
-            <h5 style="margin-top:-10px" class="boldText">INVOICE No:${
+            <h5 style="margin-top:-17px" class="boldText">Invoice No:${
               billValues.billNo
             }</h5>
           </div>
           <div style="display: flex;flex-direction:column;align-items: center">
-            <h5 class="boldText">GST TAX INVOICE (TYPE - B2C) - CASH SALE</h5>
+            <h5  style="margin-right:30px" class="boldText">GST TAX INVOICE (TYPE - B2C) - CASH SALE</h5>
           </div>
           <div>
             <h5  class="boldText" style="display:flex;flex-direction:column;align-items:flex-end">   
             <span>STATE CODE : 32</span></br>
-            <span style="margin-top:-10px">Invoice Date : ${moment().format(
+            <span style="margin-top:-15px">Invoice Date : ${moment().format(
               "LL"
             )}</span>  
         </h5>
@@ -154,9 +155,11 @@ export default function App() {
             </div>
             
             <div style="margin-top:3px" class="boxBorder">
-            <h5 class="boldText">Customer :${billValues.name}</h5>
-            <h5 style="margin-top:10px">Address:${billValues.address}</h5>
-            <h5 style="margin-top:10px">Mobile Tel : ${billValues.mobile}</h5>
+            <h5  style="font-size:12px;font-weight:bold" >Customer :${
+              billValues.name
+            }</h5>
+            <h5 style="margin-top:-10px" >Address:${billValues.address}</h5>
+            <h5 style="margin-top:-7px">Mobile Tel : ${billValues.mobile}</h5>
             </div>  
             <table class="tableStyle">
             <tr>
@@ -260,14 +263,14 @@ export default function App() {
             </table>
                       </div>
                         <div class="certifiedDiv">               
-                              <h5>Rounding:</h5>
-                              <h5 class="boldText">Total Amount : ${
+                              <h5 >Rounding:</h5>
+                              <h5 style="margin-top:-6px" class="boldText">Total Amount : ${
                                 billValues.total
                               }.00</h5>
-                              <h5>Certified that the particulars given above are true and
+                              <h5 style="margin-top:-6px">Certified that the particulars given above are true and
             correct:</h5>
-                          <h5 class="boldText">For MOBILE HOUSE</h5>
-                          <h5 class="boldText" >Authorised Signatory</h5>
+                          <h5 style="margin-top:-4px" class="boldText">For MOBILE HOUSE</h5>
+                          <h5 style="margin-top:-6px" class="boldText" >Authorised Signatory</h5>
                         </div>
                           </div>
                     </div>
