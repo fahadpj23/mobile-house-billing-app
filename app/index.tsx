@@ -57,9 +57,11 @@ export default function App() {
             font-size:10px;
           }
           .boxBorder {
-              padding:5px;
+              
               border:1px solid black;
-              border-color:#000000
+              border-color:#000000;
+              padding-left:6px;
+              padding-right:6px;
           }
           .tableStyle {
             padding:2px;
@@ -79,7 +81,7 @@ export default function App() {
           padding: 8px;   
                 }
         .divHeight {
-          height:390px;
+          height:400px;
           width:100%;
           position:relative;
         }
@@ -111,6 +113,7 @@ export default function App() {
         </style>
       </head>
       <body>
+      <div style="padding:8px">
         <div class="boxBorder" >
         <div class="logoContainer" >
           <h5 style="width:32%" class="boldText">GSTIN:32BSGPJ3340H1Z4</h5>
@@ -154,7 +157,7 @@ export default function App() {
             </div>
             </div>
             
-            <div style="margin-top:3px" class="boxBorder">
+            <div style="margin-top:3px;padding-left:6px" class="boxBorder">
             <h5  style="font-size:12px;font-weight:bold" >Customer :${
               billValues.name
             }</h5>
@@ -275,7 +278,7 @@ export default function App() {
                           </div>
                     </div>
                       
-
+                  </div>
                   </body>
                   </html>
              
