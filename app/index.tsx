@@ -113,7 +113,7 @@ export default function App() {
         </style>
       </head>
       <body>
-      <div style="padding:8px">
+      <div style="padding-left:8px;padding-right:8px">
         <div class="boxBorder" >
         <div class="logoContainer" >
           <h5 style="width:32%" class="boldText">GSTIN:32BSGPJ3340H1Z4</h5>
@@ -286,7 +286,11 @@ export default function App() {
               `;
 
       // Generate the PDF
-      const { uri } = await Print.printToFileAsync({ html: htmlContent });
+      const { uri } = await Print.printToFileAsync({
+        html: htmlContent,
+        height: 810,
+        width: 595,
+      });
 
       // Move the PDF to a permanent location
       const pdfUri = `${FileSystem.documentDirectory}example.pdf`;
@@ -318,9 +322,10 @@ export default function App() {
       </>
     );
   };
-  console.log(billValues);
+
   return (
     <ScrollView
+      keyboardShouldPersistTaps={true}
       style={{
         flex: 1,
         padding: 20,
