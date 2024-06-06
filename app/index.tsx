@@ -51,11 +51,10 @@ export default function App() {
             display:flex;
             flex-direction:row;
             padding:3px;
-         
           }
           
           h5 {
-            font-size:10px;
+            font-size:12px;
           }
           .boxBorder {
               
@@ -83,7 +82,7 @@ export default function App() {
                     font-weight:normal;
                 }
         .divHeight {
-          height:495px;
+          height:480px;
           width:100%;
           position:relative;
         }
@@ -106,7 +105,7 @@ export default function App() {
         
         .boldText  {
           font-size: 13px;
-          font-weight: 900;
+          font-weight: 700;
         }
         .dottedBorder {
             border-style: dotted;
@@ -145,8 +144,8 @@ export default function App() {
       
         <div class=container style="margin-top:-75px;padding:0px">
           <div style="width:25%">
-            <h5 class="boldText">STATE:KERALA</h5>
-            <h5 style="margin-top:-17px" class="boldText">Invoice No: MH- ${
+            <h5 class="boldText">STATE : KERALA</h5>
+            <h5 style="margin-top:-19px" class="boldText">Invoice No : MH- ${
               billValues.billNo
             }</h5>
           </div>
@@ -223,7 +222,9 @@ export default function App() {
         <hr style="width:100%;text-align:left;margin-left:0;color:#000000">
       <div class="gstDetails">
         <div style="width:70%">
-          <h5>In Words:${converter.toWords(billValues.total)} only</h5>
+          <h5><span style="font-weight:700;font-size:12px">In Words:</span><span style="font-weight:400;font-size:12px" >Rupees ${converter.toWords(
+            billValues.total
+          )} only</span> </h5>
           <table style="width:100%">
           <tr>
             <th class="dottedBorder"></th>
@@ -296,7 +297,7 @@ export default function App() {
       const { uri } = await Print.printToFileAsync({
         html: htmlContent,
         height: 810,
-        width: 595,
+        width: 585,
       });
 
       // Move the PDF to a permanent location
