@@ -82,7 +82,7 @@ export default function App() {
                     font-weight:normal;
                 }
         .divHeight {
-          height:480px;
+          height:475px;
           width:100%;
           position:relative;
         }
@@ -109,10 +109,11 @@ export default function App() {
         }
         .dottedBorder {
             border-style: dotted;
-            border-color:##D3D3D3;
+            border-collapse: collapse;
+            border-color:#D3D3D3;
             text-align: center; 
-            font-size:12px;
-            padding: 8px;
+            font-size:10px;
+            padding: 4px;
             font-weight:normal;
         }
 
@@ -170,7 +171,7 @@ export default function App() {
             <h5 style="margin-top:-8px" >Address:${billValues.address}</h5>
             <h5 style="margin-top:-5px">Mobile Tel : ${billValues.mobile}</h5>
             </div>  
-            <table class="tableStyle" style="margin-top:-17px">
+            <table class="tableStyle" style="margin-top:-18px">
             <tr>
             <th>SLNO</th>
             <th>Name of Item/Commodity</th>
@@ -185,10 +186,15 @@ export default function App() {
             <tr>
             <td>1</td>
             <td>
-            
-            <span class="boldText" >${billValues.phone}</span></br>
-            <span style="font-size:10px">IMEI1:${billValues.imei1}</span></br>
-            <span style="font-size:10px">IMEI2:${billValues.imei2}</span>
+            <div style="padding:8px">
+              <span class="boldText" >${billValues.phone}</span></br>
+              <span style="font-size:10px;margin-top:5px">IMEI1:${
+                billValues.imei1
+              }</span></br>
+              <span style="font-size:10px;margin-top:5px">IMEI2:${
+                billValues.imei2
+              }</span>
+            </div>
             </td>
             <td></td>
             <td>1</td>
@@ -221,11 +227,11 @@ export default function App() {
       </div>
         <hr style="width:100%;text-align:left;margin-left:0;color:#000000">
       <div class="gstDetails">
-        <div style="width:70%">
+        <div style="width:65%">
           <h5><span style="font-weight:700;font-size:12px">In Words:</span><span style="font-weight:400;font-size:12px" >Rupees ${converter.toWords(
             billValues.total
           )} only</span> </h5>
-          <table style="width:100%">
+          <table style="width:100%;border-collapse: collapse">
           <tr>
             <th class="dottedBorder"></th>
             <th class="dottedBorder">GST 0%</th>
@@ -235,7 +241,7 @@ export default function App() {
             <th class="dottedBorder">GST 28%</th>
           
           </tr>
-          <tr class="dottedBorder">
+          <tr>
             <td class="dottedBorder">Taxable</td>
             <td class="dottedBorder">0.00</td>
             <td class="dottedBorder">0.00</td>
@@ -277,13 +283,13 @@ export default function App() {
                       </div>
                         <div class="certifiedDiv">               
                               <h5 >Rounding:</h5>
-                              <h5 style="margin-top:-6px" class="boldText">Total Amount : ${
+                              <h5 style="margin-top:-8px" class="boldText">Total Amount : ${
                                 billValues.total
                               }.00</h5>
-                              <h5 style="margin-top:-6px">Certified that the particulars given above are true and
-            correct:</h5>
-                          <h5 style="margin-top:-4px" class="boldText">For MOBILE HOUSE</h5>
-                          <h5 style="margin-top:-6px" class="boldText" >Authorised Signatory</h5>
+                              <h6 style="margin-top:-8px">Certified that the particulars given above are true and
+            correct:</h6>
+                          <h5 style="margin-top:-6px" class="boldText">For MOBILE HOUSE</h5>
+                          <h5 style="margin-top:-8px" class="boldText" >Authorised Signatory</h5>
                         </div>
                           </div>
                     </div>
