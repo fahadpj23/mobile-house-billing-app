@@ -42,8 +42,8 @@ export default function App() {
         padding: 2px;
       }
       .shop-details {
-        height: 15%;
-        border:1px solid black;
+        height: 17%;
+        border:2px solid black;
         padding: 3px;
       }
       .customer-details {
@@ -51,17 +51,18 @@ export default function App() {
         display: flex;
         flex-direction: column;
         padding:2px;
-        margin-top: 2px;
+        margin-top: 3px;
         border-bottom: none;
+        padding:5px;
       }
       .normal-text {
         font-size: 12px;
-        margin: 2px 0;
+        margin: 3px 0;
       }
       .bold-text {
         font-size: 12px;
         font-weight: 700;
-        margin: 2px 0;
+        margin: 3px 0;
       }
       .row-container {
         display: flex;
@@ -84,7 +85,7 @@ export default function App() {
         flex-direction: column;
       }
       .seal-container {
-        height: 62%;
+        height: 59%;
         position: relative;
         border:1px solid black;
         border-top:none
@@ -93,6 +94,7 @@ export default function App() {
         height:15%;
         border:1px solid black;
         padding: 3px;
+        border-top:none;
       }
     .dotted-table-border {
             border:1px dotted #E5E4E2;
@@ -103,7 +105,7 @@ export default function App() {
             
         }
     .table-border {
-            border:1px solid #a7a5a5;
+            border:1px solid black;
             text-align: center; 
             font-size:10px;
             font-weight:normal;
@@ -112,7 +114,7 @@ export default function App() {
     .sealStyle {
           position: absolute;
           right: 30px;
-          bottom: 10px;
+          bottom: 15px;
           transform: rotate(-15deg);
           z-index:1;
 
@@ -122,6 +124,11 @@ export default function App() {
         flex-direction: row;
         justify-content: space-between;
         border-bottom: 1px solid black;
+      }
+      .instgram-logo {
+        display:flex;
+        flex-direction:row;
+        align-items:center
       }
         </style>
       </head>
@@ -141,7 +148,7 @@ export default function App() {
                 />
                 <span class="bold-text">3 Way Junction,Peringottukara</span>
                 <span class="bold-text">Mob:9072430483</span>
-                <div>
+                <div class="instgram-logo">
                   <img
                   width="30"
                   height="30"
@@ -151,7 +158,7 @@ export default function App() {
                   <span class="bold-text">mobile.house_</span>
                 </div>
               </div>
-              <div></div>
+              <div style="width:20%"></div>
 
             </div>
             <div class="row-container">
@@ -162,9 +169,8 @@ export default function App() {
                   billValues.billNo
                 }</span>
               </div>
-              <span  class="bold-text">GST TAX INVOICE (TYPE - B2C) - CASH SALE</span>
-              <div class="container-items-left">
-
+              <span  class="bold-text" style="margin-left:50px" >GST TAX INVOICE (TYPE - B2C) - CASH SALE</span>
+              <div class="container-items-right">
                 <span  class="bold-text">STATE CODE : 32</span>
                 <span  class="bold-text">Invoice Date : ${moment().format(
                   "LL"
@@ -228,25 +234,25 @@ export default function App() {
           </div>
           <div class="total-gst-container">
                 <div class="total-row-container">
-                  <span class="boldText">Total</span>
-                  <span>1</span>
-                  <span>${(billValues.total / +(1 + 18 / 100)).toFixed(
-                    2
-                  )}</span>
-                  <span>${(
+                  <span class="bold-text">Total</span>
+                  <span class="normal-text">1</span>
+                  <span class="normal-text">${(
+                    billValues.total / +(1 + 18 / 100)
+                  ).toFixed(2)}</span>
+                  <span class="normal-text">${(
                     ((+billValues.total / +(1 + 18 / 100)) * 18) /
                     100
                   ).toFixed(2)}</span>
-                  <span>${billValues.total}.00</span>
+                  <span class="normal-text">${billValues.total}.00</span>
                 </div>
-                <div class="row-container">
+                <div style="margin-top:5px;padding:3px"" class="row-container">
                     <span><span class="bold-text">In Words:</span><span class="normal-text" >Rupees ${converter.toWords(
                       billValues.total
                     )} only</span> </span>
                       <span class="normal-text">Rounding</span>
                 </div>
-                <div class="row-container">
-                    <table style="border-collapse: collapse">
+                <div class="row-container" style="padding:3px">
+                    <table style="border-collapse: collapse;margin-top:5px">
                       <tr>
                         <th class="dotted-table-border"></th>
                         <th class="dotted-table-border">GST 0%</th>
