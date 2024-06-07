@@ -37,56 +37,79 @@ export default function App() {
       <head> 
         <title>PDF Content</title>
         <style>
-          body { font-family: Arial, sans-serif,padding:5px }
-          h1 { color: #333; }
-          p { font-size: 14px; }
-           .container {
-            display:flex;
-            justify-content: space-between;
-            margin-top: -30px;
-            height:60px
-          }
-
-          .logoContainer  {
-            display:flex;
-            flex-direction:row;
-            padding:3px;
-          }
-          
-          h5 {
-            font-size:12px;
-          }
-          .boxBorder {
-              
-              border:1px solid black;
-              border-color:#000000;
-              padding-left:6px;
-              padding-right:6px;
-          }
-          .tableStyle {
-            padding:2px;
-            width:100%;
-            border-collapse: collapse;
-          }
-            td {   
+         body {
+        font-family: Arial, sans-serif;
+        padding: 2px;
+      }
+      .shop-details {
+        height: 15%;
+        border:1px solid black;
+        padding: 3px;
+      }
+      .customer-details {
+        border:1px solid black;
+        display: flex;
+        flex-direction: column;
+        padding:2px;
+        margin-top: 2px;
+        border-bottom: none;
+      }
+      .normal-text {
+        font-size: 12px;
+        margin: 2px 0;
+      }
+      .bold-text {
+        font-size: 12px;
+        font-weight: 700;
+        margin: 2px 0;
+      }
+      .row-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .container-center {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    .container-items-left {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    .container-items-right {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+      }
+      .seal-container {
+        height: 62%;
+        position: relative;
+        border:1px solid black;
+        border-top:none
+      }
+      .total-gst-container {
+        height:15%;
+        border:1px solid black;
+        padding: 3px;
+      }
+    .dotted-table-border {
+            border:1px dotted #E5E4E2;
             text-align: center; 
-            border: 1px solid #000000;
-            font-size:11px;
-
+            font-size:10px;
+            font-weight:normal;
+            padding: 3px;
+            
         }
-        th {   
-                    text-align: center; 
-                    border: 1px solid #000000;
-                    font-size:12px;
-                    padding: 8px;
-                    font-weight:normal;
-                }
-        .divHeight {
-          height:475px;
-          width:100%;
-          position:relative;
+    .table-border {
+            border:1px solid #a7a5a5;
+            text-align: center; 
+            font-size:10px;
+            font-weight:normal;
+            padding: 3px;
         }
-        .sealStyle {
+    .sealStyle {
           position: absolute;
           right: 30px;
           bottom: 10px;
@@ -94,209 +117,199 @@ export default function App() {
           z-index:1;
 
         }
-        .gstDetails {
-          display: flex;
-          flex-direction: row;
-        }
-        .certifiedDiv {
-          text-align:end;
-          width:50%;
-        }
-        
-        .boldText  {
-          font-size: 13px;
-          font-weight: 700;
-        }
-        .dottedBorder {
-            border-style: dotted;
-            border-collapse: collapse;
-            border-color:#D3D3D3;
-            text-align: center; 
-            font-size:10px;
-            padding: 4px;
-            font-weight:normal;
-        }
-
-
-        
+    .total-row-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+      }
         </style>
       </head>
       <body>
-      <div style="padding-left:8px;padding-right:8px">
-        <div class="boxBorder" >
-        <div class="logoContainer" >
-          <h5 style="width:32%" class="boldText">GSTIN:32BSGPJ3340H1Z4</h5>
-          <div style="display: flex;flex-direction:column;align-items: center;">
-            <img width="250" height="55"  alt="MobileHouseLogo" src="${mobileHouseLogo}"/></br>
-           
-          </div>
-          <div ></div>
-        </div>
-        <h5  class="boldText" style="display:flex;flex-direction:column;align-items:center;margin-top:-20px">   
-            <span style="margin-left:10px;font-size:13px">3 Way Junction,Peringottukara</span></br>
-            <span style="margin-top:-10px;font-size:13px">Mob:9072430483</span> 
-             <div style="display:flex;flex-direction:row;align-items:center;margin-top:-15px">
-             <img width="30" height="30"  alt="instagramLogo" src="${instgramLogo}"/>&nbsp;
-              <h6 style="font-size:12px">mobile.house_</h6>
-          </div>
-          </br>
-            <div ></div> 
-        </h5>
-      
-        <div class=container style="margin-top:-75px;padding:0px">
-          <div style="width:25%">
-            <h5 class="boldText">STATE : KERALA</h5>
-            <h5 style="margin-top:-19px" class="boldText">Invoice No : MH- ${
-              billValues.billNo
-            }</h5>
-          </div>
-          <div style="display: flex;flex-direction:column;align-items: center">
-            <h5  style="margin-right:30px" class="boldText">GST TAX INVOICE (TYPE - B2C) - CASH SALE</h5>
-          </div>
-          <div>
-            <h5  class="boldText" style="display:flex;flex-direction:column;align-items:flex-end">   
-            <span>STATE CODE : 32</span></br>
-            <span style="margin-top:-15px">Invoice Date : ${moment().format(
-              "LL"
-            )}</span>  
-        </h5>           
-          </div>
-            </div>
-            </div>
-            
-            <div style="margin-top:3px;padding-left:6px;border-bottom:none" class="boxBorder">
-            <h5  style="font-size:13px;font-weight:900;margin-top:8px" >Customer :${
-              billValues.name
-            }</h5>
-            <h5 style="margin-top:-8px" >Address:${billValues.address}</h5>
-            <h5 style="margin-top:-5px">Mobile Tel : ${billValues.mobile}</h5>
-            </div>  
-            <table class="tableStyle" style="margin-top:-18px">
-            <tr>
-            <th>SLNO</th>
-            <th>Name of Item/Commodity</th>
-            <th>HSNCode</th>
-            <th>Qty</th>
-            <th>Total Rate</th>
-            <th>Total Disc</th>
-            <th>GST%</th>
-            <th>GST Amt</th>
-            <th>Total Amount</th>
-            </tr>
-            <tr>
-            <td>1</td>
-            <td>
-            <div style="padding:8px">
-              <span class="boldText" >${billValues.phone}</span></br>
-              <span style="font-size:10px;margin-top:5px">IMEI1:${
-                billValues.imei1
-              }</span></br>
-              <span style="font-size:10px;margin-top:5px">IMEI2:${
-                billValues.imei2
-              }</span>
-            </div>
-            </td>
-            <td></td>
-            <td>1</td>
-            <td>${(billValues.total / +(1 + 18 / 100)).toFixed(2)}</td>
-            
-            <td>0.00</td>
-            <td>18</td>
-            <td>${(((+billValues.total / +(1 + 18 / 100)) * 18) / 100).toFixed(
-              2
-            )}</td>
-            <td>${billValues.total}.00 </td>
-            
-            </tr>
-            
-            </table>
-            <div style="border:1px solid black;padding:5px;border-top:none">
-            <div class="divHeight">
-                          <img width="180" height="120" alt="MobileHouseLogo" src="${Seal}" class="sealStyle"/>
-
-              </div>
-        <hr style="width:100%;text-align:left;margin-left:0;color:#000000">
-      <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;height:15px">
-        <h6 class="boldText">Total</h6>
-        <h6>1</h6>
-        <h6>${(billValues.total / +(1 + 18 / 100)).toFixed(2)}</h6>
-        <h6>${(((+billValues.total / +(1 + 18 / 100)) * 18) / 100).toFixed(
-          2
-        )}</h6>
-        <h6>${billValues.total}.00</h6> 
-      </div>
-        <hr style="width:100%;text-align:left;margin-left:0;color:#000000">
-      <div class="gstDetails">
-        <div style="width:65%">
-          <h5><span style="font-weight:700;font-size:12px">In Words:</span><span style="font-weight:400;font-size:12px" >Rupees ${converter.toWords(
-            billValues.total
-          )} only</span> </h5>
-          <table style="width:100%;border-collapse: collapse">
-          <tr>
-            <th class="dottedBorder"></th>
-            <th class="dottedBorder">GST 0%</th>
-            <th class="dottedBorder">GST 5%</th>
-            <th class="dottedBorder">GST 12%</th>
-            <th class="dottedBorder">GST 18%</th>
-            <th class="dottedBorder">GST 28%</th>
           
-          </tr>
-          <tr>
-            <td class="dottedBorder">Taxable</td>
-            <td class="dottedBorder">0.00</td>
-            <td class="dottedBorder">0.00</td>
-            <td class="dottedBorder">0.00</td>
-            <td class="dottedBorder"> ${(
-              ((+billValues.total / +(1 + 18 / 100)) * 18) /
-              100
-            ).toFixed(2)}
-            <td class="dottedBorder">0.00</td>
-             </td>
-          </tr>                
-          <tr>
-              <td class="dottedBorder">CGST Amount</td>
-              <td class="dottedBorder">0.00</td>
-              <td class="dottedBorder">0.00</td>
-              <td class="dottedBorder">0.00</td>
-                 <td class="dottedBorder">${(
-                   (((+billValues.total / +(1 + 18 / 100)) * 18) / 100).toFixed(
-                     2
-                   ) / 2
-                 ).toFixed(2)}</td>
+
+        <div style="height:90vh; width: 100%">
+          <div class="shop-details">
+            <div class="row-container">
+              <h5 class="bold-text">GSTIN:32BSGPJ3340H1Z4</h5>
+            <div class="container-center">
+                <img
+                  width="250"
+                  height="50"
+                  alt="MobileHouseLogo"
+                  src="${mobileHouseLogo}"
+                />
+                <span class="bold-text">3 Way Junction,Peringottukara</span>
+                <span class="bold-text">Mob:9072430483</span>
+                <div>
+                  <img
+                  width="30"
+                  height="30"
+                  alt="instagramLogo"
+                  src="${instgramLogo}"
+                />
+                  <span class="bold-text">mobile.house_</span>
+                </div>
+              </div>
+              <div></div>
+
+            </div>
+            <div class="row-container">
+              <div class="container-items-left">
+
+                <span  class="bold-text">STATE : KERALA</span>
+                <span  class="bold-text">Invoice No : MH- ${
+                  billValues.billNo
+                }</span>
+              </div>
+              <span  class="bold-text">GST TAX INVOICE (TYPE - B2C) - CASH SALE</span>
+              <div class="container-items-left">
+
+                <span  class="bold-text">STATE CODE : 32</span>
+                <span  class="bold-text">Invoice Date : ${moment().format(
+                  "LL"
+                )}</span>
+              </div>
+              </div>
               
-              <td class="dottedBorder">0.00</td>
-            </tr>
-                      <tr>
-              <td class="dottedBorder">SGST Amount</td>
-              <td class="dottedBorder">0.00</td>
-              <td class="dottedBorder">0.00</td>
-              <td class="dottedBorder">0.00</td>
-              <td class="dottedBorder">${(
-                (((+billValues.total / +(1 + 18 / 100)) * 18) / 100).toFixed(
-                  2
-                ) / 2
-              ).toFixed(2)}</td>
-              <td class="dottedBorder">0.00</td>
-            </tr>
-  
+          </div>
+          <div class="customer-details">
+                <span  class="bold-text">Customer : ${billValues.name}</span>
+                <span  class="normal-text">Address : ${
+                  billValues.address
+                }</span>
+                <span  class="normal-text">Mobile/Tel: ${
+                  billValues.mobile
+                }</span>
+              </div>
+          <div>
+            <table style="width:100%;border-collapse: collapse;">
+              <tr>
+                <th class="table-border">Sl No</th>
+                <th class="table-border">Name of item/Commodity</th>
+                <th class="table-border">HSNCode</th>
+                <th class="table-border">Qty</th>
+                <th class="table-border">Total Rate</th>
+                <th class="table-border">Total Disc</th>
+                <th class="table-border">GST%</th>
+                <th class="table-border">GST Amt</th>
+                <th class="table-border">Total Amount</th>
+              </tr>
+            <tr>
+                <td class="table-border">1</td>
+                <td class="table-border">
+                <div style="padding:8px">
+                  <span class="bold-text" >${billValues.phone}</span></br>
+                  <span class="normal-text">IMEI1:${
+                    billValues.imei1
+                  }</span></br>
+                  <span class="normal-text">IMEI2:${billValues.imei2}</span>
+                </div>
+                </td>
+                <td class="table-border"></td>
+                <td class="table-border">1</td>
+                <td class="table-border">${(
+                  billValues.total / +(1 + 18 / 100)
+                ).toFixed(2)}</td>
+                
+                <td class="table-border">0.00</td>
+                <td class="table-border">18</td>
+                <td class="table-border">${(
+                  ((+billValues.total / +(1 + 18 / 100)) * 18) /
+                  100
+                ).toFixed(2)}</td>
+                <td class="table-border">${billValues.total}.00 </td>
+                
+                </tr>
             </table>
-                      </div>
-                        <div class="certifiedDiv">               
-                              <h5 >Rounding:</h5>
-                              <h5 style="margin-top:-8px" class="boldText">Total Amount : ${
-                                billValues.total
-                              }.00</h5>
-                              <h6 style="margin-top:-8px">Certified that the particulars given above are true and
-            correct:</h6>
-                          <h5 style="margin-top:-6px" class="boldText">For MOBILE HOUSE</h5>
-                          <h5 style="margin-top:-8px" class="boldText" >Authorised Signatory</h5>
-                        </div>
-                          </div>
+          </div>
+          <div class="seal-container">
+              <img width="180" height="120" alt="MobileHouseLogo" src="${Seal}" class="sealStyle"/>
+          </div>
+          <div class="total-gst-container">
+                <div class="total-row-container">
+                  <span class="boldText">Total</span>
+                  <span>1</span>
+                  <span>${(billValues.total / +(1 + 18 / 100)).toFixed(
+                    2
+                  )}</span>
+                  <span>${(
+                    ((+billValues.total / +(1 + 18 / 100)) * 18) /
+                    100
+                  ).toFixed(2)}</span>
+                  <span>${billValues.total}.00</span>
+                </div>
+                <div class="row-container">
+                    <span><span class="bold-text">In Words:</span><span class="normal-text" >Rupees ${converter.toWords(
+                      billValues.total
+                    )} only</span> </span>
+                      <span class="normal-text">Rounding</span>
+                </div>
+                <div class="row-container">
+                    <table style="border-collapse: collapse">
+                      <tr>
+                        <th class="dotted-table-border"></th>
+                        <th class="dotted-table-border">GST 0%</th>
+                        <th class="dotted-table-border">GST 5%</th>
+                        <th class="dotted-table-border">GST 12%</th>
+                        <th class="dotted-table-border">GST 18%</th>
+                        <th class="dotted-table-border">GST 28%</th>
+                      </tr>
+                      <tr>
+                        <td class="dotted-table-border">Taxable</td>
+                        <td class="dotted-table-border">000</td>
+                        <td class="dotted-table-border">000</td>
+                        <td class="dotted-table-border">000</td>
+                        <td class="dotted-table-border">${(
+                          ((+billValues.total / +(1 + 18 / 100)) * 18) /
+                          100
+                        ).toFixed(2)}</td>
+                        <td class="dotted-table-border">000</td>
+                      </tr>
+                      <tr>
+                        <td class="dotted-table-border">CGST Amount</td>
+                        <td class="dotted-table-border">000</td>
+                        <td class="dotted-table-border">000</td>
+                        <td class="dotted-table-border">000</td>
+                        <td class="dotted-table-border">${(
+                          (
+                            ((+billValues.total / +(1 + 18 / 100)) * 18) /
+                            100
+                          ).toFixed(2) / 2
+                        ).toFixed(2)}</td>
+                        <td class="dotted-table-border">000</td>
+                      </tr>
+                      <tr>
+                        <td class="dotted-table-border">SGST Amount</td>
+                        <td class="dotted-table-border">000</td>
+                        <td class="dotted-table-border">000</td>
+                        <td class="dotted-table-border">000</td>
+                        <td class="dotted-table-border">${(
+                          (
+                            ((+billValues.total / +(1 + 18 / 100)) * 18) /
+                            100
+                          ).toFixed(2) / 2
+                        ).toFixed(2)}</td>
+                        <td class="dotted-table-border">000</td>
+                      </tr>
+                    </table>
+                    <div class="container-items-right">
+                      <span class="bold-text">Total Amount : ${
+                        billValues.total
+                      }.00</span>
+                      <span class="normal-text">Certified that the particulars given above are true and correct:</span>
+                      <span class="bold-text">For Mobile House</span>
+                      <span class="bold-text">Authorised Signatory</span>
+
                     </div>
-                      
-                  </div>
-                  </body>
-                  </html>
+                </div>
+          </div>
+        </div>
+      </body>
+    </html>
+
+
+
               `;
 
       // Generate the PDF
