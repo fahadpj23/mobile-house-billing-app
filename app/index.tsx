@@ -42,8 +42,8 @@ export default function App() {
         padding: 2px;
       }
       .shop-details {
-        height: 17%;
-        border:2px solid black;
+        height: 18%;
+        border:1px solid black;
         padding: 3px;
       }
       .customer-details {
@@ -57,12 +57,13 @@ export default function App() {
       }
       .normal-text {
         font-size: 12px;
-        margin: 3px 0;
+        margin: 3.5px 0;
+        font-weight: 300;
       }
       .bold-text {
         font-size: 12px;
         font-weight: 700;
-        margin: 3px 0;
+        margin: 3.5px 0;
       }
       .row-container {
         display: flex;
@@ -85,19 +86,19 @@ export default function App() {
         flex-direction: column;
       }
       .seal-container {
-        height: 59%;
+        height: 55%;
         position: relative;
         border:1px solid black;
         border-top:none
       }
       .total-gst-container {
-        height:15%;
+        height:17%;
         border:1px solid black;
         padding: 3px;
         border-top:none;
       }
     .dotted-table-border {
-            border:1px dotted #E5E4E2;
+            border:1.5px dotted #E5E4E2;
             text-align: center; 
             font-size:10px;
             font-weight:normal;
@@ -107,14 +108,14 @@ export default function App() {
     .table-border {
             border:1px solid black;
             text-align: center; 
-            font-size:10px;
+            font-size:12px;
             font-weight:normal;
             padding: 3px;
         }
     .sealStyle {
           position: absolute;
           right: 30px;
-          bottom: 15px;
+          bottom: 20px;
           transform: rotate(-15deg);
           z-index:1;
 
@@ -142,7 +143,7 @@ export default function App() {
             <div class="container-center">
                 <img
                   width="250"
-                  height="50"
+                  height="60"
                   alt="MobileHouseLogo"
                   src="${mobileHouseLogo}"
                 />
@@ -173,7 +174,7 @@ export default function App() {
               <div class="container-items-right">
                 <span  class="bold-text">STATE CODE : 32</span>
                 <span  class="bold-text">Invoice Date : ${moment().format(
-                  "LL"
+                  "DD/MM/YYYY"
                 )}</span>
               </div>
               </div>
@@ -190,8 +191,8 @@ export default function App() {
               </div>
           <div>
             <table style="width:100%;border-collapse: collapse;">
-              <tr>
-                <th class="table-border">Sl No</th>
+              <tr >
+                <th style="padding:5px" class="table-border">Sl No</th>
                 <th class="table-border">Name of item/Commodity</th>
                 <th class="table-border">HSNCode</th>
                 <th class="table-border">Qty</th>
@@ -230,7 +231,7 @@ export default function App() {
             </table>
           </div>
           <div class="seal-container">
-              <img width="180" height="120" alt="MobileHouseLogo" src="${Seal}" class="sealStyle"/>
+              <img width="183" height="123" alt="MobileHouseLogo" src="${Seal}" class="sealStyle"/>
           </div>
           <div class="total-gst-container">
                 <div class="total-row-container">
@@ -322,7 +323,7 @@ export default function App() {
       const { uri } = await Print.printToFileAsync({
         html: htmlContent,
         height: 810,
-        width: 585,
+        width: 580,
       });
 
       // Move the PDF to a permanent location
